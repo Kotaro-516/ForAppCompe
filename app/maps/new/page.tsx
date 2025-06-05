@@ -11,6 +11,7 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { ArrowLeft, MapPin, Plus } from "lucide-react"
 import { useRouter } from "next/navigation"
+<<<<<<< HEAD
 import InteractiveMap from "@/components/interactive-map"
 import RouteMap from "@/components/route-map"
 import { saveMap } from "@/lib/map-storage"
@@ -25,6 +26,11 @@ const sampleSpots = [
     position: { lat: 33.2841, lng: 131.4448 },
   },
 ]
+=======
+
+// サンプルスポットデータ
+const sampleSpots = [{ id: 1, name: "東京タワー", category: "観光", address: "東京都港区芝公園4-2-8" }]
+>>>>>>> abaebebe8b0dacecaa0e27b5af8d2c0c194a2a9d
 
 export default function AddSpots() {
   const router = useRouter()
@@ -34,6 +40,7 @@ export default function AddSpots() {
     category: "",
     address: "",
   })
+<<<<<<< HEAD
   const [routePoints, setRoutePoints] = useState<number[]>([])
   const [mapTitle, setMapTitle] = useState("")
   const [mapCategory, setMapCategory] = useState("")
@@ -62,10 +69,13 @@ export default function AddSpots() {
 
   // ルート用スポット配列
   const routeSpots = routePoints.map((id) => spots.find((s) => s.id === id)).filter(Boolean) as typeof spots
+=======
+>>>>>>> abaebebe8b0dacecaa0e27b5af8d2c0c194a2a9d
 
   const handleAddSpot = (e: React.FormEvent) => {
     e.preventDefault()
     const newId = spots.length > 0 ? Math.max(...spots.map((s) => s.id)) + 1 : 1
+<<<<<<< HEAD
     setSpots([
       ...spots,
       {
@@ -74,10 +84,14 @@ export default function AddSpots() {
         position: { lat: 33.2395578 + Math.random() * 0.1, lng: 131.6095468 + Math.random() * 0.1 },
       },
     ])
+=======
+    setSpots([...spots, { ...newSpot, id: newId }])
+>>>>>>> abaebebe8b0dacecaa0e27b5af8d2c0c194a2a9d
     setNewSpot({ name: "", category: "", address: "" })
   }
 
   const handleComplete = () => {
+<<<<<<< HEAD
     if (!mapTitle) {
       alert("マップのタイトルを入力してください")
       return
@@ -111,6 +125,12 @@ export default function AddSpots() {
   // 大分県の中心
   const oitaCenter = { lat: 33.2395578, lng: 131.6095468 }
 
+=======
+    // 実際のアプリではここでデータを保存する処理を行う
+    router.push("/home")
+  }
+
+>>>>>>> abaebebe8b0dacecaa0e27b5af8d2c0c194a2a9d
   return (
     <div className="container mx-auto px-3 sm:px-4 py-6 sm:py-8">
       <Link href="/home" className="flex items-center text-sm mb-6">
@@ -118,6 +138,7 @@ export default function AddSpots() {
         ホームに戻る
       </Link>
 
+<<<<<<< HEAD
       <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 sm:mb-6">大分県のマップにスポットを追加</h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -132,6 +153,17 @@ export default function AddSpots() {
               className="h-full"
               // マーカークリックでルートに追加
               // Google Maps APIのマーカークリックイベントをカスタムで渡す場合は、InteractiveMap側の拡張が必要
+=======
+      <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 sm:mb-6">東京都のマップにスポットを追加</h1>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="lg:col-span-2">
+          <div className="bg-muted rounded-lg h-48 sm:h-[400px] flex items-center justify-center mb-4 sm:mb-6">
+            <img
+              src="/placeholder.svg?height=400&width=800&text=東京都マップ"
+              alt="東京都マップ"
+              className="h-full w-full object-cover rounded-lg"
+>>>>>>> abaebebe8b0dacecaa0e27b5af8d2c0c194a2a9d
             />
           </div>
 
@@ -143,21 +175,29 @@ export default function AddSpots() {
                 <CardContent className="p-4">
                   <div className="flex justify-between items-start">
                     <div>
+<<<<<<< HEAD
                       <h3 className="font-medium cursor-pointer text-blue-600 underline" onClick={() => handleMarkerClick(spot.id)}>
                         {spot.name}
                       </h3>
+=======
+                      <h3 className="font-medium">{spot.name}</h3>
+>>>>>>> abaebebe8b0dacecaa0e27b5af8d2c0c194a2a9d
                       <p className="text-sm text-muted-foreground">{spot.category}</p>
                       <p className="text-xs text-muted-foreground mt-1 flex items-center">
                         <MapPin size={12} className="mr-1" />
                         {spot.address}
                       </p>
+<<<<<<< HEAD
                       {routePoints.includes(spot.id) && <span className="text-xs text-orange-500 ml-2">ルートに追加済み</span>}
+=======
+>>>>>>> abaebebe8b0dacecaa0e27b5af8d2c0c194a2a9d
                     </div>
                   </div>
                 </CardContent>
               </Card>
             ))}
           </div>
+<<<<<<< HEAD
 
           {/* ルート可視化 */}
           {routeSpots.length > 1 && (
@@ -166,6 +206,8 @@ export default function AddSpots() {
               <RouteMap spots={routeSpots} className="h-64 rounded-lg" />
             </div>
           )}
+=======
+>>>>>>> abaebebe8b0dacecaa0e27b5af8d2c0c194a2a9d
         </div>
 
         <div>
@@ -225,6 +267,7 @@ export default function AddSpots() {
             </CardContent>
           </Card>
 
+<<<<<<< HEAD
           <Card className="mt-4">
             <CardContent className="p-6">
               <h2 className="text-xl font-semibold mb-4">マップの詳細</h2>
@@ -267,6 +310,11 @@ export default function AddSpots() {
               </Button>
             </CardContent>
           </Card>
+=======
+          <Button onClick={handleComplete} className="w-full mt-4" variant="outline">
+            完了
+          </Button>
+>>>>>>> abaebebe8b0dacecaa0e27b5af8d2c0c194a2a9d
         </div>
       </div>
     </div>

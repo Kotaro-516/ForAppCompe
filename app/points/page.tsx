@@ -59,12 +59,15 @@ const stats = {
 }
 
 export default function PointsPage() {
+<<<<<<< HEAD
   const handleQrScanClick = () => {
     // QRスキャンボタンがクリックされたときの処理をここに記述します
     // 例：別のページにリダイレクトする、モーダルを開くなど
     console.log("QRスキャンボタンがクリックされました")
   }
 
+=======
+>>>>>>> abaebebe8b0dacecaa0e27b5af8d2c0c194a2a9d
   return (
     <div className="container mx-auto px-3 sm:px-4 py-6 sm:py-8">
       <Link href="/home" className="flex items-center text-sm mb-6">
@@ -78,10 +81,19 @@ export default function PointsPage() {
           <p className="text-muted-foreground mt-2">あなたの冒険の記録</p>
         </div>
 
+<<<<<<< HEAD
         <Button className="flex items-center gap-2 mt-4 md:mt-0" onClick={handleQrScanClick}>
           <QrCode size={16} />
           QRスキャン
         </Button>
+=======
+        <Link href="/scan">
+          <Button className="flex items-center gap-2 mt-4 md:mt-0">
+            <QrCode size={16} />
+            QRスキャン
+          </Button>
+        </Link>
+>>>>>>> abaebebe8b0dacecaa0e27b5af8d2c0c194a2a9d
       </div>
 
       <Tabs defaultValue="overview" className="space-y-6">

@@ -1,6 +1,9 @@
 "use client"
 
+<<<<<<< HEAD
 import { use } from "react"
+=======
+>>>>>>> abaebebe8b0dacecaa0e27b5af8d2c0c194a2a9d
 import { useState } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
@@ -11,6 +14,10 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
 import { ArrowLeft, ArrowUp, ArrowDown, MapPin, Clock, Route } from "lucide-react"
+<<<<<<< HEAD
+=======
+import { toast } from "sonner"
+>>>>>>> abaebebe8b0dacecaa0e27b5af8d2c0c194a2a9d
 
 // サンプルスポットデータ
 const availableSpots = [
@@ -20,14 +27,21 @@ const availableSpots = [
   { id: 4, name: "渋谷スクランブル交差点", category: "観光", address: "東京都渋谷区渋谷2丁目", estimatedTime: 30 },
 ]
 
+<<<<<<< HEAD
 export default function CreateRoute({ params }: { params: Promise<{ id: string }> }) {
   const { id} = use(params)
+=======
+export default function CreateRoute({ params }: { params: { id: string } }) {
+>>>>>>> abaebebe8b0dacecaa0e27b5af8d2c0c194a2a9d
   const router = useRouter()
   const [routeName, setRouteName] = useState("")
   const [transportMethod, setTransportMethod] = useState("")
   const [selectedSpots, setSelectedSpots] = useState<number[]>([])
   const [routeOrder, setRouteOrder] = useState<number[]>([])
+<<<<<<< HEAD
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
+=======
+>>>>>>> abaebebe8b0dacecaa0e27b5af8d2c0c194a2a9d
 
   const handleSpotToggle = (spotId: number) => {
     if (selectedSpots.includes(spotId)) {
@@ -66,24 +80,38 @@ export default function CreateRoute({ params }: { params: Promise<{ id: string }
 
   const handleCreateRoute = () => {
     if (!routeName || !transportMethod || routeOrder.length < 2) {
+<<<<<<< HEAD
       setErrorMessage("ルート名、移動手段を入力し、2つ以上のスポットを選択してください")
+=======
+      toast.error("ルート名、移動手段を入力し、2つ以上のスポットを選択してください")
+>>>>>>> abaebebe8b0dacecaa0e27b5af8d2c0c194a2a9d
       return
     }
 
     // 実際のアプリではここでルートデータを保存
+<<<<<<< HEAD
     alert(`${routeName}が正常に作成されました`)
     router.push(`/maps/${id}`)
+=======
+    toast.success(`${routeName}が正常に作成されました`)
+    router.push(`/maps/${params.id}`)
+>>>>>>> abaebebe8b0dacecaa0e27b5af8d2c0c194a2a9d
   }
 
   return (
     <div className="container mx-auto px-3 sm:px-4 py-6 sm:py-8">
+<<<<<<< HEAD
       <Link href={`/maps/${id}`} className="flex items-center text-sm mb-6">
+=======
+      <Link href={`/maps/${params.id}`} className="flex items-center text-sm mb-6">
+>>>>>>> abaebebe8b0dacecaa0e27b5af8d2c0c194a2a9d
         <ArrowLeft size={16} className="mr-1" />
         マップに戻る
       </Link>
 
       <h1 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">新しいルートを作成</h1>
 
+<<<<<<< HEAD
       {errorMessage && (
         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
           <strong className="font-bold">エラー!</strong>
@@ -102,6 +130,8 @@ export default function CreateRoute({ params }: { params: Promise<{ id: string }
         </div>
       )}
 
+=======
+>>>>>>> abaebebe8b0dacecaa0e27b5af8d2c0c194a2a9d
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         <div className="lg:col-span-2">
           <div className="bg-muted rounded-lg h-48 sm:h-[400px] flex items-center justify-center mb-4 sm:mb-6">
